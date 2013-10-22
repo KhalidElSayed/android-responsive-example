@@ -7,22 +7,21 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import es.catmobil.tornofici.R;
 import es.catmobil.tornofici.ui.fragment.BaseFragment;
 import es.catmobil.tornofici.ui.fragment.NavigationDrawerFragment;
 
-public class MainActivity extends ActionBarActivity implements ActionBar.TabListener{
-
-    private NavigationDrawerFragment mNavigationDrawerFragment;
+public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setUpNavigation();
+        setUpActionBar();
 
         boolean tabletMode = findViewById(R.id.content2) != null;
 
@@ -33,13 +32,19 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         }
     }
 
-    private void setUpNavigation() {
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+    private void setUpActionBar() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
-        // Set up the drawer.
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, drawerLayout);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return false;
     }
 
     private void setUpMobile() {
