@@ -13,8 +13,7 @@ import es.catmobil.tornofici.R;
 import es.catmobil.tornofici.ui.fragment.BaseFragment;
 import es.catmobil.tornofici.ui.fragment.NavigationDrawerFragment;
 
-public class MainActivity extends ActionBarActivity implements ActionBar.TabListener,
-        NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class MainActivity extends ActionBarActivity implements ActionBar.TabListener{
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
@@ -96,11 +95,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-
-    }
-
-    @Override
-    public void onNavigationDrawerItemSelected(int position) {
 
     }
 }
